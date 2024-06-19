@@ -6,9 +6,11 @@ module.exports = {
       colors: {
         'primary': '#ee0181',
         'anuj':'01ee91'
-      }
-    },
+      },
+      fontFamily: {
+        body :['Karla']
+      },
   },
   plugins: [],
 }
-
+}

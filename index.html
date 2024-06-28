@@ -8,26 +8,89 @@
   <title>Frontend Mentor | Contact form</title>
   <link href="./output.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
-<body class="flex justify-center font-body bg-">
-  <div class="container max-auto my-20 w-1/3  bg-white rounded-2xl">
-    <div class="p-5 space-y-5 shadow-xl">
-      <h1 class="text-left text-3xl">Contact Us</h1>
-      <form class="grid grid-cols-2 gap-5">
-        <div class="flex flex-row	flex-col">
-          <div class="flex gap-2">
-            <h2 class="font-">First Name </h2>
-            <p class="text-green-900">*</p>
+<body class="flex justify-center h-screen items-center font-body bg-green-100">
+  <div class=" container max-auto  w-2/4 ">
+    <div class="p-10 space-y-5 rounded-2xl bg-white ">
+      <h1 class="text-left text-4xl">Contact Us</h1>
+      <form class="grid gap-5">
+        <div class="grid grid-cols-2 gap-5">
+          <div class="flex flex-col ">
+            <div class="flex gap-2 items-center">
+              <h2 class="font-sans text-neutral-700 text-sm pb-1">First Name</h2>
+              <p class="text-green-900 pb-1">*</p>
+            </div>
+            <input type="text"
+                   name="first_name" 
+                   id="first_name"
+                   class="border cursor-pointer	 rounded-md border-neutral-400 p-3 focus:outline-none focus:border-green-500 rounded hover:border hover:border-gree-500"
+                   />
+          </div>
+          <div class="flex flex-col">
+            <div class="flex gap-2 items-center">
+              <h2 class="font-sans text-neutral-700 text-sm pb-1">Last Name</h2>
+              <p class="text-green-900 pb-1">*</p>
+            </div>
+            <input type="text"
+                   name="last_name" 
+                   id="last_name"
+                   class="border cursor-pointer	 rounded-md border-neutral-400 p-3 focus:outline-none focus:border-purple-500"
+                   />
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex gap-2 items-center">
+            <h2 class="font-sans text-neutral-700 text-sm pb-1">Email Address</h2>
+            <p class="text-green-900 pb-1">*</p>
           </div>
           <input type="text"
-                  name="" 
-                  id="int"
-                  class=""
-                  />
+                 name="last_name" 
+                 id="last_name"
+                 class="border rounded-md border-neutral-400 p-3 focus:outline-none focus:border-purple-500"
+                 />
+        </div>
+        <div class="flex flex-col">
+          <div class="flex gap-2 items-start flex-row	">
+            <h2 class="font-sans text-neutral-700 text-sm pb-1">Query Type</h2>
+            <p class="text-green-900 pb-1">*</p>
+          </div>  
+          <div class="grid grid-cols-2 gap-5">
+            <div class="flex gap-2 flex-row  p-2 pl-6 items-center border rounded-md border-neutral-400">
+              <input 
+              type="radio" 
+              class=" w-4 h-4 cursor-pointer	 border border-blue-500 rounded-md font-sans text-neutral-700 text-sm pb-1"
+              name="option" value="1">
+              <p class=" text-gray-600">General Enquiry</p>
+            </div>
+            <div class="flex gap-2 flex-row p-2 pl-6 items-center border rounded-md border-neutral-400">
+              <input 
+              type="radio" 
+              class=" w-4 h-4 border cursor-pointer	 border-blue-500 rounded-md p-4" name="option" value="2">
+              <p class=" text-gray-600">Support Request</p>
+            </div>
+
+          </div>
+          <div class="flex gap-2 items-center pt-4">
+            <h2 class="font-sans text-neutral-700 text-sm pb-1">First Name</h2>
+            <p class="text-green-900 pb-1">*</p>
+          </div>
+          <textarea name=""
+          cols="5" 
+          class="border rounded-md border-gray-400 px-4 py-2 h-20 focus:outline-none focus:border-purple-500 " 
+          rows="5" 
+          id="" ></textarea>
+          <div class="flex flex-row gap-3 items-center pt-6" >
+            <input type="checkbox" class=" " >
+            <div class="flex gap-2 items-center ">
+              <h2 class="font-sans text-neutral-600 text-sm ">I consent to being contacted by the team</h2>
+              <p class="text-green-900 pb-1">*</p>
+            </div>
+          </div>
+          <button class="bg-green-600 text-white rounded-md h-10 mt-5 cursor-pointer	">Submit</button>
         </div>
       </form>
     </div>
   </div>
-
+<script src="script.js"></script>
 </body>
 </html>
 
@@ -51,7 +114,7 @@ This field is required
 I consent to being contacted by the team
 To submit this form, please consent to being contacted
 
-Submit
+
 
 Message Sent!
 Thanks for completing the form. We'll be in touch soon!

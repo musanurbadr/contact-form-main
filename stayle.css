@@ -3,3 +3,53 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+input[type= 'text'].from-error,
+input[type= 'email'].from-error{
+}
+
+.from-alert {
+    display: none;
+    color: red;
+    margin-top: .10rem;
+    font-size: 12px;
+}
+.from-alert.from-error{
+    display: block;
+}
+.success-message{
+    background-color: hsl(187, 24%, 22%);
+    color: rgb(206, 216, 206);
+    width: max-content;
+    padding: 1rem;
+    pointer-events: none;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    opacity: 0;
+    transform: translateX(-50%);
+    border-radius: .35rem;
+}
+.message-header {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+.success-message.active {
+    display: block;
+    pointer-events: all;
+    animation-name: fadeOut;
+    animation: duration 5s;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeOut{
+    0% , 25% , 50% , 75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

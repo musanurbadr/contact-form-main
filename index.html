@@ -7,115 +7,182 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <title>Frontend Mentor | Contact form</title>
   <link href="./output.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
-<body class="flex justify-center h-screen items-center font-body bg-green-100">
-  <div class=" container max-auto  w-2/4 ">
-    <div class="p-10 space-y-5 rounded-2xl bg-white ">
-      <h1 class="text-left text-4xl">Contact Us</h1>
-      <form class="grid gap-5">
-        <div class="grid grid-cols-2 gap-5">
-          <div class="flex flex-col ">
-            <div class="flex gap-2 items-center">
-              <h2 class="font-sans text-neutral-700 text-sm pb-1">First Name</h2>
-              <p class="text-green-900 pb-1">*</p>
+  <link rel="stylesheet" href="./stayle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer"/></head>
+  <body class="flex justify-center h-screen items-center font-body bg-green-100">
+    <style>
+      .form-alert {
+          display: none;
+          color: red;
+      }
+      .form-error {
+          border: 1px solid red;
+      }
+      .success-message {
+          display: none;
+          color: green;
+      }
+      .success-message.active {
+          display: block;
+      }
+  </style>
+    <div class="container max-auto w-2/4 sm:flex sm:flex-col">
+      <div class="p-10 space-y-5 rounded-2xl bg-white">
+        <h1 class="text-left text-4xl">Contact Us</h1>
+        <form class="grid gap-5" id="contact-form">
+          <div class="grid grid-cols-2 gap-5">
+            <div class="flex flex-col">
+              <div class="flex gap-2 items-center">
+                <h2 class="font-sans text-neutral-700 text-sm pb-1">First Name</h2>
+                <p class="text-green-900 pb-1">*</p>
+              </div>
+              <input type="text" name="first_name" id="first_name" class="border cursor-pointer rounded-md border-neutral-400 p-3 focus:outline-none hover:border-lime-700"/>
+              <p class="form-alert">This field is required</p>
             </div>
-            <input type="text"
-                   name="first_name" 
-                   id="first_name"
-                   class="border cursor-pointer	 rounded-md border-neutral-400 p-3 focus:outline-none focus:border-green-500 rounded hover:border hover:border-gree-500"
-                   />
+            <div class="flex flex-col">
+              <div class="flex gap-2 items-center">
+                <h2 class="font-sans text-neutral-700 text-sm pb-1">Last Name</h2>
+                <p class="text-green-900 pb-1">*</p>
+              </div>
+              <input type="text" name="last_name" id="last_name" class="border cursor-pointer rounded-md border-neutral-400 p-3 focus:outline-none hover:border-lime-700"/>
+              <p class="form-alert">This field is required</p>
+            </div>
           </div>
           <div class="flex flex-col">
             <div class="flex gap-2 items-center">
-              <h2 class="font-sans text-neutral-700 text-sm pb-1">Last Name</h2>
+              <h2 class="font-sans text-neutral-700 text-sm pb-1">Email Address</h2>
               <p class="text-green-900 pb-1">*</p>
             </div>
-            <input type="text"
-                   name="last_name" 
-                   id="last_name"
-                   class="border cursor-pointer	 rounded-md border-neutral-400 p-3 focus:outline-none focus:border-purple-500"
-                   />
+            <input type="text" name="email" id="email" class="border rounded-md border-neutral-400 p-3 focus:outline-none hover:border-lime-700"/>
+            <p class="form-alert">Please enter a valid email address</p>
           </div>
-        </div>
-        <div class="flex flex-col">
-          <div class="flex gap-2 items-center">
-            <h2 class="font-sans text-neutral-700 text-sm pb-1">Email Address</h2>
-            <p class="text-green-900 pb-1">*</p>
-          </div>
-          <input type="text"
-                 name="last_name" 
-                 id="last_name"
-                 class="border rounded-md border-neutral-400 p-3 focus:outline-none focus:border-purple-500"
-                 />
-        </div>
-        <div class="flex flex-col">
-          <div class="flex gap-2 items-start flex-row	">
-            <h2 class="font-sans text-neutral-700 text-sm pb-1">Query Type</h2>
-            <p class="text-green-900 pb-1">*</p>
-          </div>  
-          <div class="grid grid-cols-2 gap-5">
-            <div class="flex gap-2 flex-row  p-2 pl-6 items-center border rounded-md border-neutral-400">
-              <input 
-              type="radio" 
-              class=" w-4 h-4 cursor-pointer	 border border-blue-500 rounded-md font-sans text-neutral-700 text-sm pb-1"
-              name="option" value="1">
-              <p class=" text-gray-600">General Enquiry</p>
+          <div class="flex flex-col">
+            <div class="flex gap-2 items-start">
+              <h2 class="font-sans text-neutral-700 text-sm pb-1">Query Type</h2>
+              <p class="text-green-900 pb-1">*</p>
+            </div>  
+            <div class="grid grid-cols-2 gap-5 cursor-pointer" id="radio-option">
+              <div class="flex gap-2 flex-row p-2 pl-6 items-center border rounded-md border-neutral-400">
+                <input type="radio" id="general-enquiry" class="w-4 h-4 cursor-pointer border rounded-md font-sans text-neutral-700 text-sm pb-1 hover:border-lime-700" name="option" value="general-enquiry">
+                <p class="text-gray-600" for="general-enquiry">General Enquiry</p>
+              </div>
+              <div class="flex gap-2 flex-row p-2 pl-6 items-center border rounded-md border-neutral-400">
+                <input id="support-request" type="radio" class="w-4 h-4 cursor-pointer border rounded-md font-sans text-neutral-700 text-sm pb-1 hover:border-lime-700" name="option" value="support-request">
+                <p class="text-gray-600" for="support-request">Support Request</p>
+              </div>
             </div>
-            <div class="flex gap-2 flex-row p-2 pl-6 items-center border rounded-md border-neutral-400">
-              <input 
-              type="radio" 
-              class=" w-4 h-4 border cursor-pointer	 border-blue-500 rounded-md p-4" name="option" value="2">
-              <p class=" text-gray-600">Support Request</p>
-            </div>
-
+            <p class="form-alert">Please select a query type</p>
           </div>
-          <div class="flex gap-2 items-center pt-4">
-            <h2 class="font-sans text-neutral-700 text-sm pb-1">First Name</h2>
-            <p class="text-green-900 pb-1">*</p>
-          </div>
-          <textarea name=""
-          cols="5" 
-          class="border rounded-md border-gray-400 px-4 py-2 h-20 focus:outline-none focus:border-purple-500 " 
-          rows="5" 
-          id="" ></textarea>
-          <div class="flex flex-row gap-3 items-center pt-6" >
-            <input type="checkbox" class=" " >
-            <div class="flex gap-2 items-center ">
-              <h2 class="font-sans text-neutral-600 text-sm ">I consent to being contacted by the team</h2>
+          <div class="flex flex-col">
+            <div class="flex gap-2 items-center pt-4">
+              <h2 class="font-sans text-neutral-700 text-sm pb-1">Message</h2>
               <p class="text-green-900 pb-1">*</p>
             </div>
+            <textarea class="border rounded-md border-gray-400 px-4 py-2 h-20 focus:outline-none hover:border-lime-700" rows="4" id="message"></textarea>
+            <p class="form-alert">This field is required</p>
           </div>
-          <button class="bg-green-600 text-white rounded-md h-10 mt-5 cursor-pointer	">Submit</button>
-        </div>
-      </form>
+          <div class="flex flex-row gap-3 items-center pt-6" id="consent">
+            <input type="checkbox" class="consent cursor-pointer" id="consent">
+            <div class="flex gap-2 items-center">
+              <h2 for="consent" class="font-sans cursor-pointer text-neutral-600 text-sm">I consent to being contacted by the team</h2>
+              <p class="text-green-900 pb-1">*</p>
+              <p class="form-alert">To submit this form, please consent to being contacted</p>
+            </div>
+          </div>
+          <button id="submit-btn" class="bg-green-900 text-white rounded-md h-10 mt-5 cursor-pointer font-mono hover:bg-green-700 w-full text-sm">Submit</button>
+        </form>
+      </div>
     </div>
-  </div>
-<script src="script.js"></script>
-</body>
+    <div class="success-message" id="success-message">
+      <div class="message-header">
+        <img src="./assets/images/icon-success-check.svg" alt="">
+        Message Sent!
+      </div>
+      <p>Thanks for completing the form. We'll be in touch soon!</p>
+    </div>
+    <script>
+      const form = document.getElementById('contact-form');
+      const successMessage = document.getElementById('success-message');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const firstName = document.getElementById('first_name').value.trim();
+        const lastName = document.getElementById('last_name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const type = document.querySelector('input[name="option"]:checked');
+        const message = document.getElementById('message').value.trim();
+        const consent = document.getElementById('consent').checked;
+
+        const formAlerts = document.querySelectorAll('.form-alert');
+        formAlerts.forEach(alert => alert.style.display = 'none');
+
+        let isValid = true;
+
+        // First name
+        if (firstName === '') {
+          isValid = false;
+          document.querySelector('#first_name + .form-alert').style.display = 'block';
+          document.getElementById('first_name').classList.add('form-error');
+        } else {
+          document.getElementById('first_name').classList.remove('form-error');
+        }
+
+        // Last name
+        if (lastName === '') {
+          isValid = false;
+          document.querySelector('#last_name + .form-alert').style.display = 'block';
+          document.getElementById('last_name').classList.add('form-error');
+        } else {
+          document.getElementById('last_name').classList.remove('form-error');
+        }
+
+        // Email
+        if (!isValidEmail(email)) {
+          isValid = false;
+          document.querySelector('#email + .form-alert').style.display = 'block';
+          document.getElementById('email').classList.add('form-error');
+        } else {
+          document.getElementById('email').classList.remove('form-error');
+        }
+
+        // Query type
+        if (!type) {
+          isValid = false;
+          document.querySelector('#radio-option + .form-alert').style.display = 'block';
+        } else {
+          document.querySelector('#radio-option + .form-alert').style.display = 'none';
+        }
+
+        // Message
+        if (message === '') {
+          isValid = false;
+          document.querySelector('#message + .form-alert').style.display = 'block';
+          document.getElementById('message').classList.add('form-error');
+        } else {
+          document.getElementById('message').classList.remove('form-error');
+        }
+
+        // Consent
+        if (!consent) {
+          isValid = false;
+          
+          document.querySelector('#consent + .form-alert').style.display = 'block';
+        } else {
+          document.querySelector('#consent + .form-alert').style.display = 'none';
+        }
+
+        // Form is valid
+        if (isValid) {
+          successMessage.classList.add('active');
+          form.reset();
+        }
+      });
+
+      function isValidEmail(email) {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(email);
+      }
+    </script>
+  </body>
 </html>
-
-<!-- This field is required
-
-Last Name
-This field is required
-
-Email Address
-Please enter a valid email address
-This field is required
-
-Query Type
-General Enquiry
-Support Request
-Please select a query type
-
-Message
-This field is required
-
-I consent to being contacted by the team
-To submit this form, please consent to being contacted
-
-
-
-Message Sent!
-Thanks for completing the form. We'll be in touch soon!
--->
